@@ -1,4 +1,5 @@
 import {useState} from "react";
+import {Link as RouterLink} from "react-router-dom";
 import {
   Drawer,
   ListItemIcon,
@@ -11,7 +12,8 @@ import {
   List,
   ListItem,
   ListItemButton,
-  Button
+  Button,
+  Link
 } from "@mui/material";
 import {Menu, Settings} from '@mui/icons-material';
 
@@ -22,7 +24,7 @@ const Navigation = () => {
     <Box sx={{width: 250}} role="presentation">
       <List>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton component={RouterLink} to="settings">
             <ListItemIcon>
               <Settings />
             </ListItemIcon>
@@ -48,10 +50,25 @@ const Navigation = () => {
             <Menu />
           </IconButton>
           <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
-            Movie recommendations
+            <Link
+              to="/"
+              component={RouterLink}
+              sx={{
+                color: 'white',
+                '&:hover': {
+                  textDecoration: 'none'
+                }
+              }}
+            >
+              Movie recommendations
+            </Link>
           </Typography>
           <Box sx={{display: { xs: 'none', lg: 'flex' }}}>
-            <Button sx={{my: 2, color: 'white', display: 'block'}}>
+            <Button
+              component={RouterLink}
+              to="settings"
+              sx={{my: 2, color: 'white', display: 'block'}}
+            >
               Settings
             </Button>
           </Box>
