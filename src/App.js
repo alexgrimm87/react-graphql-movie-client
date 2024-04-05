@@ -1,12 +1,11 @@
-import CssBaseline from '@mui/material/CssBaseline';
+import {CssBaseline} from "@mui/material";
+import {Navigation} from "./components";
 
 function App() {
   return (
     <>
       <CssBaseline />
-      <div className="App">
-        The Movie Database (TMDB)
-      </div>
+      <Navigation />
     </>
   );
 }
