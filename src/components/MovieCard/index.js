@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import {Card, CardMedia, CardContent, Typography} from '@mui/material';
+import {Card, CardMedia, CardContent, Typography, MenuItem} from '@mui/material';
 import {styled} from '@mui/material/styles';
-import {CardMenu} from './components';
+import CardMenu from "../CardMenu";
 
 const CardInfo = styled(CardContent)(({theme}) => ({
   '&:last-child': {
@@ -12,7 +12,11 @@ const CardInfo = styled(CardContent)(({theme}) => ({
 const MovieCard = ({movie, onCardSelect}) => {
   return (
     <Card sx={{maxWidth: 250, position: "relative"}}>
-      <CardMenu onCardSelect={onCardSelect} />
+      <CardMenu>
+        <MenuItem onClick={onCardSelect}>
+          Select
+        </MenuItem>
+      </CardMenu>
       <CardMedia
         component="img"
         height="250"
