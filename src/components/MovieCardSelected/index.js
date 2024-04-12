@@ -4,7 +4,7 @@ import CardMenu from "../CardMenu";
 
 const MovieCardSelected = ({movie, onCardDelete}) => {
   return (
-    <Card sx={{display: 'flex'}}>
+    <Card sx={{display: 'flex', minHeight: '164px'}}>
       <CardMedia
         component="img"
         sx={{width: 100}}
@@ -31,7 +31,7 @@ const MovieCardSelected = ({movie, onCardDelete}) => {
           </Typography>
         </Box>
         <CardMenu>
-          <MenuItem onClick={onCardDelete}>
+          <MenuItem onClick={() => onCardDelete(movie)}>
             Delete
           </MenuItem>
         </CardMenu>
