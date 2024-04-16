@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState, useContext, useCallback} from "react";
 import {Link as RouterLink} from "react-router-dom";
 import {
   Drawer,
@@ -16,9 +16,19 @@ import {
   Link
 } from "@mui/material";
 import {Menu, Settings} from '@mui/icons-material';
+import {AppContext} from '../../context/appContext';
+import {LOCALES} from '../../const';
 
 const Navigation = () => {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
+  const {state, dispatch} = useContext(AppContext);
+
+  const setLanguage = useCallback((locale) => {
+    dispatch({
+      type: 'setLocale',
+      locale
+    })
+  }, []);
 
   const list = () => (
     <Box sx={{width: 250}} role="presentation">
@@ -63,6 +73,23 @@ const Navigation = () => {
               Movie recommendations
             </Link>
           </Typography>
+          <Box>
+            {state.locale}
+            <Button
+              disabled={state.locale === LOCALES.ENGLISH}
+              sx={{my: 2, color: 'white'}}
+              onClick={() => setLanguage(LOCALES.ENGLISH)}
+            >
+              ENGLISH
+            </Button>
+            <Button
+              disabled={state.locale === LOCALES.UKRAINIAN}
+              sx={{my: 2, color: 'white'}}
+              onClick={() => setLanguage(LOCALES.UKRAINIAN)}
+            >
+              Українська
+            </Button>
+          </Box>
           <Box sx={{display: { xs: 'none', lg: 'flex' }}}>
             <Button
               component={RouterLink}
