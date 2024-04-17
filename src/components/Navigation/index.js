@@ -1,5 +1,6 @@
 import {useState, useContext, useCallback} from "react";
 import {Link as RouterLink} from "react-router-dom";
+import {FormattedMessage} from "react-intl";
 import {
   Drawer,
   ListItemIcon,
@@ -16,8 +17,9 @@ import {
   Link
 } from "@mui/material";
 import {Menu, Settings} from '@mui/icons-material';
-import {AppContext} from '../../context/appContext';
+import {AppContext} from '../../providers/appContext';
 import {LOCALES} from '../../const';
+import translate from '../../utils/translate';
 
 const Navigation = () => {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
@@ -38,7 +40,7 @@ const Navigation = () => {
             <ListItemIcon>
               <Settings />
             </ListItemIcon>
-            <ListItemText primary="Settings" />
+            <ListItemText primary={translate('Navigation.settings')} />
           </ListItemButton>
         </ListItem>
       </List>
@@ -70,7 +72,7 @@ const Navigation = () => {
                 }
               }}
             >
-              Movie recommendations
+              <FormattedMessage id="navigation.home" />
             </Link>
           </Typography>
           <Box>
@@ -96,7 +98,7 @@ const Navigation = () => {
               to="settings"
               sx={{my: 2, color: 'white', display: 'block'}}
             >
-              Settings
+              <FormattedMessage id="navigation.settings" />
             </Button>
           </Box>
         </Toolbar>

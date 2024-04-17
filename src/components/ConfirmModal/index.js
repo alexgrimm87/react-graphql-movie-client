@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import PropTypes from 'prop-types';
+import {FormattedMessage} from "react-intl";
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import {Box, Typography, Modal, Paper, Divider, IconButton, InputBase, Alert} from '@mui/material';
 import {ContentCopy, Visibility, Close} from '@mui/icons-material';
@@ -78,7 +79,7 @@ const ConfirmModal = ({open, url, title, onClose}) => {
         </Paper>
 
         <Typography id="modal-modal-title" variant="h6" component="h3">
-          Share with friends
+          <FormattedMessage id="share_with_friends" />
         </Typography>
 
         <SocialShare url={url} title="title" />
@@ -99,7 +100,7 @@ const ConfirmModal = ({open, url, title, onClose}) => {
               </IconButton>
             }
           >
-            Copied!
+            <FormattedMessage id="copied" />
           </Alert>
         ) : null}
       </Box>

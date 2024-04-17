@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import {FormattedMessage} from "react-intl";
 import {Card, CardMedia, CardContent, Typography, MenuItem, Box} from '@mui/material';
 import {AddBoxOutlined} from "@mui/icons-material";
 import {styled} from '@mui/material/styles';
@@ -34,7 +35,7 @@ const MovieCard = ({movie, onCardSelect, isPreviewMode}) => {
       {!isPreviewMode && (
         <CardMenu>
           <MenuItem onClick={() => onCardSelect(movie)}>
-            Select
+            <FormattedMessage id="select" />
           </MenuItem>
         </CardMenu>
       )}

@@ -1,8 +1,9 @@
 import {useContext} from 'react';
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import {ApolloClient, InMemoryCache, ApolloProvider, HttpLink, ApolloLink, from} from '@apollo/client';
 import {CssBaseline, Container, Box} from "@mui/material";
-import {AppContext} from './context/appContext';
+import {AppContext} from './providers/appContext';
+import I18nProvider from './providers/i18n'
 import {Navigation} from "./components";
 import {Home, Recommend, Settings} from "./pages";
 
@@ -30,8 +31,8 @@ function App() {
   });
 
   return (
-    <ApolloProvider client={client}>
-      <BrowserRouter>
+    <I18nProvider locale={state.locale}>
+      <ApolloProvider client={client}>
         <CssBaseline />
         <Navigation />
         <Box sx={{backgroundColor: (theme) => theme.palette.grey[100]}}>
@@ -43,8 +44,8 @@ function App() {
             </Routes>
           </Container>
         </Box>
-      </BrowserRouter>
-    </ApolloProvider>
+      </ApolloProvider>
+    </I18nProvider>
   );
 }
 
