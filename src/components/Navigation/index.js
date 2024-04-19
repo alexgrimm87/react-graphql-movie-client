@@ -19,7 +19,6 @@ import {
 import {Menu, Settings} from '@mui/icons-material';
 import {AppContext} from '../../providers/appContext';
 import {LOCALES} from '../../const';
-import translate from '../../utils/translate';
 
 const Navigation = () => {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
@@ -36,11 +35,15 @@ const Navigation = () => {
     <Box sx={{width: 250}} role="presentation">
       <List>
         <ListItem disablePadding>
-          <ListItemButton component={RouterLink} to="settings">
+          <ListItemButton
+            component={RouterLink}
+            to="https://developer.themoviedb.org/reference/discover-movie"
+            target="_blank"
+          >
             <ListItemIcon>
               <Settings />
             </ListItemIcon>
-            <ListItemText primary={translate('Navigation.settings')} />
+            <ListItemText primary={'TMDB API'} />
           </ListItemButton>
         </ListItem>
       </List>
@@ -76,13 +79,12 @@ const Navigation = () => {
             </Link>
           </Typography>
           <Box>
-            {state.locale}
             <Button
               disabled={state.locale === LOCALES.ENGLISH}
               sx={{my: 2, color: 'white'}}
               onClick={() => setLanguage(LOCALES.ENGLISH)}
             >
-              ENGLISH
+              English
             </Button>
             <Button
               disabled={state.locale === LOCALES.UKRAINIAN}
@@ -92,13 +94,14 @@ const Navigation = () => {
               Українська
             </Button>
           </Box>
-          <Box sx={{display: { xs: 'none', lg: 'flex' }}}>
+          <Box sx={{display: {xs: 'none', lg: 'flex'}}}>
             <Button
               component={RouterLink}
-              to="settings"
+              to="https://developer.themoviedb.org/reference/discover-movie"
               sx={{my: 2, color: 'white', display: 'block'}}
+              target="_blank"
             >
-              <FormattedMessage id="navigation.settings" />
+              TMDB API
             </Button>
           </Box>
         </Toolbar>

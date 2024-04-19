@@ -19,7 +19,7 @@ const SelectedMovies = styled(Paper)(({theme}) => ({
 }));
 
 const MoviesList = styled(Stack)(({theme}) => ({
-  overflow: 'scroll',
+  overflowY: 'scroll',
   height: '100%'
 }));
 

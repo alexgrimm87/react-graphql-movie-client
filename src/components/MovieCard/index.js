@@ -53,7 +53,7 @@ const MovieCard = ({movie, onCardSelect, isPreviewMode}) => {
         )}
       </Box>
       <CardInfo>
-        <Typography variant="h6" gutterBottom component="div">
+        <Typography variant="h6" gutterBottom component="div" sx={{minHeight: '64px'}}>
           {movie.title}
         </Typography>
         <Typography mb={0} variant="subtitle1" gutterBottom component="div">

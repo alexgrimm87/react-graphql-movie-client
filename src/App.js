@@ -5,7 +5,7 @@ import {CssBaseline, Container, Box} from "@mui/material";
 import {AppContext} from './providers/appContext';
 import I18nProvider from './providers/i18n'
 import {Navigation} from "./components";
-import {Home, Recommend, Settings} from "./pages";
+import {Home, Recommend} from "./pages";
 
 function App() {
   const {state} = useContext(AppContext);
@@ -39,7 +39,6 @@ function App() {
           <Container maxWidth="xl">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="settings" element={<Settings />} />
               <Route path="recommend" element={<Recommend />} />
             </Routes>
           </Container>
